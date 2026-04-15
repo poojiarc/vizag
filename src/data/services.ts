@@ -1,3 +1,16 @@
+import applianceImg from "@/assets/serv/application.jpg";
+import fanImg from "@/assets/serv/fan.jpg";
+import inverterImg from "@/assets/serv/inverter.jpg";
+import lightImg from "@/assets/serv/light.jpg";
+import mcbImg from "@/assets/serv/mcb.jpg";
+import switchImg from "@/assets/serv/switch.jpg";
+import homeAutoImg from "@/assets/serv/home auto mation.jpg";
+import generalImg from "@/assets/serv/general services.jpg";
+
+
+
+
+
 export interface ServiceItem {
   name: string;
   description?: string;
@@ -18,7 +31,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "appliance-installation-repair",
     description: "Professional installation, repair and maintenance of all home and commercial appliances.",
     icon: "Wrench",
-    image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80",
+    image: applianceImg,
     items: [
       { name: "Geyser Installation" },
       { name: "Geyser Repair" },
@@ -39,7 +52,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "fans",
     description: "Expert fan installation, repair and replacement services for all types of fans.",
     icon: "Fan",
-    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
+    image: fanImg,
     items: [
       { name: "Smart/BLDC Fan Installation" },
       { name: "Fan Installation" },
@@ -54,7 +67,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "lighting",
     description: "Complete lighting solutions from installation to repair for homes and businesses.",
     icon: "Lightbulb",
-    image: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80",
+    image: lightImg,
     items: [
       { name: "Decorative Light Installation" },
       { name: "Chandelier Installation" },
@@ -71,7 +84,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "switch-socket-smart-home",
     description: "Modern switch, socket installations and smart home automation solutions.",
     icon: "ToggleRight",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800&q=80",
+    image: switchImg,
     items: [
       { name: "Switch/Socket Replacement" },
       { name: "Switch Board Installation" },
@@ -86,7 +99,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "inverter-stabilizer",
     description: "Reliable power backup and voltage stabilization solutions.",
     icon: "Battery",
-    image: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d?w=800&q=80",
+    image: inverterImg,
     items: [
       { name: "Inverter Installation" },
       { name: "Inverter Repair" },
@@ -102,7 +115,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "mcb-submeter-wiring",
     description: "Professional electrical wiring, MCB installation and submeter services.",
     icon: "Zap",
-    image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
+    image: mcbImg,
     items: [
       { name: "MCB/RCCB Installation" },
       { name: "MCB/RCCB Replacement" },
@@ -119,7 +132,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "home-automation",
     description: "Smart home automation solutions for modern living.",
     icon: "Home",
-    image: "https://images.unsplash.com/photo-1558002038-1055907df827?w=800&q=80",
+    image: homeAutoImg,
     items: [
       { name: "Smart Lighting Setup" },
       { name: "Smart Fan Control" },
@@ -134,7 +147,7 @@ export const serviceCategories: ServiceCategory[] = [
     slug: "general-services",
     description: "General electrical maintenance, inspection and troubleshooting services.",
     icon: "Settings",
-    image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=800&q=80",
+    image: generalImg,
     items: [
       { name: "Electrical Inspection" },
       { name: "Fault Finding / Troubleshooting" },
