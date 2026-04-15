@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, Clock, AlertTriangle, Info } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, AlertTriangle, Info, Shield, BadgeCheck, ClipboardCheck, ShieldCheck } from "lucide-react";
 import SectionReveal from "@/components/SectionReveal";
 import { serviceCategories } from "@/data/services";
 import { products } from "@/data/products";
@@ -38,9 +38,9 @@ const Contact = () => {
       form.service && `Service: ${form.service}`,
       form.product && `Product: ${form.product}`,
       `Message: ${form.message.trim()}`,
-    ].filter(Boolean).join("%0A");
+    ].filter(Boolean).join("\n");
 
-    const url = `https://wa.me/917981188798?text=${encodeURIComponent(lines.replace(/%0A/g, "\n"))}`;
+    const url = `https://wa.me/917981188798?text=${encodeURIComponent(lines)}`;
     window.open(url, "_blank");
   };
 
@@ -88,6 +88,23 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Business Hours Detail */}
+              <div className="mt-6 pt-6 border-t border-border">
+                <h3 className="font-semibold text-sm mb-3 flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-primary" />
+                  Business Hours
+                </h3>
+                <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+                  <span>Monday</span><span>8:00 AM – 6:00 PM</span>
+                  <span>Tuesday</span><span>8:00 AM – 6:00 PM</span>
+                  <span>Wednesday</span><span>8:00 AM – 6:00 PM</span>
+                  <span>Thursday</span><span>8:00 AM – 6:00 PM</span>
+                  <span>Friday</span><span>8:00 AM – 6:00 PM</span>
+                  <span>Saturday</span><span>8:00 AM – 6:00 PM</span>
+                  <span>Sunday</span><span className="text-primary">Emergency Only</span>
+                </div>
+              </div>
             </div>
           </SectionReveal>
 
@@ -132,11 +149,29 @@ const Contact = () => {
           </SectionReveal>
         </div>
 
+        {/* UC Cover Section */}
+        <SectionReveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            {[
+              { icon: Shield, label: "Safety First", desc: "All work follows safety standards" },
+              { icon: ShieldCheck, label: "Insurance Protection", desc: "Covered for your peace of mind" },
+              { icon: BadgeCheck, label: "Verified Experts", desc: "Trained & certified electricians" },
+              { icon: ClipboardCheck, label: "Standardized Process", desc: "Consistent quality every time" },
+            ].map((item) => (
+              <div key={item.label} className="glass rounded-xl p-4 text-center">
+                <item.icon className="w-8 h-8 mx-auto mb-2 text-primary" />
+                <p className="text-sm font-semibold">{item.label}</p>
+                <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </SectionReveal>
+
         {/* Important Notes */}
         <SectionReveal>
           <div className="glass rounded-2xl p-6 md:p-8">
             <h2 className="font-bold text-lg mb-4 flex items-center gap-2">
-              <AlertTriangle className="w-5 h-5 text-gold" />
+              <AlertTriangle className="w-5 h-5 text-yellow-500" />
               Important Notes
             </h2>
             <ul className="space-y-2">

@@ -13,7 +13,7 @@ const HeroVideo = () => {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    const src = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
+    const src = "https://customer-cbeadsgr09pnsezs.cloudflarestream.com/697945ca6b876878dba3b23fbd2f1561/manifest/video.m3u8";
     if (Hls.isSupported()) {
       const hls = new Hls({ enableWorker: true });
       hls.loadSource(src);
@@ -25,14 +25,17 @@ const HeroVideo = () => {
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      autoPlay
-      muted
-      loop
-      playsInline
-      className="absolute inset-0 w-full h-full object-cover mix-blend-screen opacity-30 pointer-events-none"
-    />
+    <div className="relative w-full -mt-[150px] z-10">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#010101] via-transparent to-[#010101] z-10 pointer-events-none" />
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="w-full h-auto mix-blend-screen"
+      />
+    </div>
   );
 };
 
@@ -40,39 +43,45 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background z-10" />
-        <HeroVideo />
-
+      <section className="relative flex flex-col items-center overflow-hidden pt-32 pb-0">
+        {/* Text content */}
         <div className="relative z-20 container mx-auto px-4 text-center">
           {/* Announcement pill */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8"
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-8"
+            style={{ background: "rgba(28,27,36,0.15)", border: "1px solid rgba(255,255,255,0.08)" }}
           >
-            <span className="w-2 h-2 rounded-full gradient-bg animate-pulse" />
-            <span className="text-xs text-muted-foreground">Used by homeowners. Trusted by professionals.</span>
+            <span className="flex items-center justify-center w-6 h-6 rounded-md gradient-bg shadow-[0_0_12px_rgba(201,103,232,0.5)]">
+              <Zap className="w-3.5 h-3.5 text-white" />
+            </span>
+            <span className="text-xs text-white/70">Used by homeowners. Trusted by professionals.</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            className="text-[48px] md:text-[64px] lg:text-[80px] font-bold leading-[1.1] mb-6"
           >
-            Your Vision.{" "}
-            <span className="gradient-text">Our Electrical Precision.</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-white/90 to-[#C967E8]">
+              Your Vision.
+            </span>
+            <br />
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-[#FA93FA] to-[#983AD6]">
+              Our Electrical Precision.
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8"
+            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-8"
           >
-            We power homes, offices, showrooms, workshops, hospitals, schools, colleges and more.
+            We turn bold ideas into modern designs that don't just look amazing, they grow your business fast.
           </motion.p>
 
           <motion.div
@@ -81,13 +90,18 @@ const Index = () => {
             transition={{ delay: 0.8 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <Link
-              to="/contact"
-              className="gradient-bg text-primary-foreground px-8 py-3 rounded-full font-semibold text-lg hover:opacity-90 transition-opacity flex items-center gap-2"
-            >
-              Book a Service
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+            {/* CTA Button with glass border */}
+            <div className="rounded-full p-[1px] bg-gradient-to-r from-white/20 to-white/5">
+              <Link
+                to="/contact"
+                className="bg-white text-black px-8 py-3 rounded-full font-semibold text-lg flex items-center gap-3 hover:bg-white/90 transition-colors"
+              >
+                Book a Service
+                <span className="flex items-center justify-center w-8 h-8 rounded-full gradient-bg">
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </span>
+              </Link>
+            </div>
             <a
               href="tel:7981188798"
               className="glass px-8 py-3 rounded-full font-semibold text-lg hover:bg-white/10 transition-colors flex items-center gap-2"
@@ -98,8 +112,8 @@ const Index = () => {
           </motion.div>
         </div>
 
-        {/* Gradient overlay at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10" />
+        {/* Video below text */}
+        <HeroVideo />
       </section>
 
       {/* Logo slider */}

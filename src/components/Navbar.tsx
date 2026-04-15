@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Home, Wrench, ShoppingBag, Info, MessageSquare } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 
 const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/products", label: "Products" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
+  { to: "/", label: "Home", icon: Home },
+  { to: "/services", label: "Services", icon: Wrench },
+  { to: "/products", label: "Products", icon: ShoppingBag },
+  { to: "/about", label: "About", icon: Info },
+  { to: "/contact", label: "Contact", icon: MessageSquare },
 ];
 
 const Navbar = () => {
@@ -29,17 +29,21 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`text-sm transition-colors hover:text-primary ${
-                location.pathname === link.to ? "text-primary font-semibold" : "text-muted-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`text-sm transition-colors hover:text-primary flex items-center gap-1.5 ${
+                  location.pathname === link.to ? "text-primary font-semibold" : "text-muted-foreground"
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                {link.label}
+              </Link>
+            );
+          })}
           <a
             href="tel:7981188798"
             className="flex items-center gap-2 gradient-bg text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
@@ -65,18 +69,22 @@ const Navbar = () => {
             className="md:hidden glass-strong overflow-hidden"
           >
             <div className="px-4 py-4 flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setOpen(false)}
-                  className={`text-sm py-2 transition-colors ${
-                    location.pathname === link.to ? "text-primary font-semibold" : "text-muted-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={() => setOpen(false)}
+                    className={`text-sm py-2 transition-colors flex items-center gap-2 ${
+                      location.pathname === link.to ? "text-primary font-semibold" : "text-muted-foreground"
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {link.label}
+                  </Link>
+                );
+              })}
               <a
                 href="tel:7981188798"
                 className="flex items-center justify-center gap-2 gradient-bg text-primary-foreground px-4 py-2 rounded-full text-sm font-semibold mt-2"
