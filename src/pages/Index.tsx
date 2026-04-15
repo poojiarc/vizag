@@ -25,15 +25,16 @@ const HeroVideo = () => {
   }, []);
 
   return (
-    <div className="relative w-full -mt-[150px] z-10">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#010101] via-transparent to-[#010101] z-10 pointer-events-none" />
+    <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent z-10 pointer-events-none" />
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        className="w-full h-auto mix-blend-screen"
+        className="w-full h-full object-cover opacity-40"
       />
     </div>
   );
@@ -42,35 +43,36 @@ const HeroVideo = () => {
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="relative flex flex-col items-center overflow-hidden pt-32 pb-0">
-        {/* Text content */}
-        <div className="relative z-20 container mx-auto px-4 text-center">
-          {/* Announcement pill */}
+      {/* Hero — full-screen with video background */}
+      <section className="relative h-screen flex items-end overflow-hidden">
+        <HeroVideo />
+
+        {/* Bottom-left hero content */}
+        <div className="relative z-20 container mx-auto px-6 pb-20 md:pb-24">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-8"
-            style={{ background: "rgba(28,27,36,0.15)", border: "1px solid rgba(255,255,255,0.08)" }}
+            className="inline-flex items-center gap-2 rounded-full px-4 py-2 mb-6"
+            style={{ background: "rgba(43,35,10,0.4)", border: "1px solid rgba(212,168,37,0.2)" }}
           >
-            <span className="flex items-center justify-center w-6 h-6 rounded-md gradient-bg shadow-[0_0_12px_rgba(201,103,232,0.5)]">
-              <Zap className="w-3.5 h-3.5 text-white" />
+            <span className="flex items-center justify-center w-6 h-6 rounded-md gradient-bg shadow-[0_0_12px_rgba(212,168,37,0.5)]">
+              <Zap className="w-3.5 h-3.5 text-primary-foreground" />
             </span>
-            <span className="text-xs text-white/70">Used by homeowners. Trusted by professionals.</span>
+            <span className="text-xs text-foreground/70">Used by homeowners. Trusted by professionals.</span>
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-[48px] md:text-[64px] lg:text-[80px] font-bold leading-[1.1] mb-6"
+            className="text-[40px] md:text-[56px] lg:text-[72px] font-bold leading-[1.08] mb-5 max-w-3xl"
           >
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-white/90 to-[#C967E8]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-[hsl(45,30%,95%)] via-[hsl(43,80%,70%)] to-[hsl(43,85%,55%)]">
               Your Vision.
             </span>
             <br />
-            <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-[#FA93FA] to-[#983AD6]">
+            <span className="bg-clip-text text-transparent bg-gradient-to-b from-[hsl(43,80%,70%)] via-[hsl(43,85%,55%)] to-[hsl(38,90%,40%)]">
               Our Electrical Precision.
             </span>
           </motion.h1>
@@ -79,26 +81,25 @@ const Index = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-8"
+            className="text-foreground/70 text-base md:text-lg max-w-xl mb-8"
           >
-            We turn bold ideas into modern designs that don't just look amazing, they grow your business fast.
+            We power homes, offices, showrooms, workshops, hospitals, schools, colleges and more — with precision and care.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-start gap-4"
           >
-            {/* CTA Button with glass border */}
-            <div className="rounded-full p-[1px] bg-gradient-to-r from-white/20 to-white/5">
+            <div className="rounded-full p-[1px] bg-gradient-to-r from-[hsl(43,80%,70%)]/30 to-[hsl(38,90%,40%)]/10">
               <Link
                 to="/contact"
-                className="bg-white text-black px-8 py-3 rounded-full font-semibold text-lg flex items-center gap-3 hover:bg-white/90 transition-colors"
+                className="gradient-bg text-primary-foreground px-8 py-3 rounded-full font-semibold text-lg flex items-center gap-3 hover:opacity-90 transition-opacity"
               >
                 Book a Service
-                <span className="flex items-center justify-center w-8 h-8 rounded-full gradient-bg">
-                  <ArrowRight className="w-4 h-4 text-white" />
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-primary-foreground/20">
+                  <ArrowRight className="w-4 h-4 text-primary-foreground" />
                 </span>
               </Link>
             </div>
@@ -106,14 +107,11 @@ const Index = () => {
               href="tel:7981188798"
               className="glass px-8 py-3 rounded-full font-semibold text-lg hover:bg-white/10 transition-colors flex items-center gap-2"
             >
-              <Phone className="w-5 h-5" />
+              <Phone className="w-5 h-5 text-primary" />
               7981188798
             </a>
           </motion.div>
         </div>
-
-        {/* Video below text */}
-        <HeroVideo />
       </section>
 
       {/* Logo slider */}

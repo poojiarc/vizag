@@ -4,37 +4,39 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0.4%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 2%;
+    --foreground: 45 20% 90%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 95%;
+    --card: 40 10% 6%;
+    --card-foreground: 45 20% 90%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 40 10% 6%;
+    --popover-foreground: 45 20% 90%;
 
-    --primary: 280 60% 65%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 43 85% 55%;
+    --primary-foreground: 0 0% 2%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 40 8% 12%;
+    --secondary-foreground: 45 20% 90%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 64%;
+    --muted: 40 5% 15%;
+    --muted-foreground: 40 10% 55%;
 
-    --accent: 280 60% 65%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 43 85% 55%;
+    --accent-foreground: 0 0% 2%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 280 60% 65%;
+    --border: 40 10% 16%;
+    --input: 40 10% 16%;
+    --ring: 43 85% 55%;
 
     --radius: 0.75rem;
 
-    --gold: 43 75% 49%;
+    --gold: 43 85% 55%;
+    --gold-light: 43 80% 70%;
+    --gold-dark: 38 90% 40%;
   }
 }
 
@@ -56,10 +58,10 @@
     @apply bg-white/10 backdrop-blur-2xl border border-white/15;
   }
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FA93FA] via-[#C967E8] to-[#983AD6];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(43,80%,70%)] via-[hsl(43,85%,55%)] to-[hsl(38,90%,40%)];
   }
   .gradient-bg {
-    @apply bg-gradient-to-r from-[#FA93FA] via-[#C967E8] to-[#983AD6];
+    @apply bg-gradient-to-r from-[hsl(43,80%,70%)] via-[hsl(43,85%,55%)] to-[hsl(38,90%,40%)];
   }
   .gradient-border {
     position: relative;
@@ -70,7 +72,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, #FA93FA, #C967E8, #983AD6);
+    background: linear-gradient(135deg, hsl(43,80%,70%), hsl(43,85%,55%), hsl(38,90%,40%));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
