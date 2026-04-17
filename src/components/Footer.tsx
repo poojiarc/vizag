@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, Heart, Home, Wrench, ShoppingBag, Info, MessageSquare } from "lucide-react";
+import { Phone, Mail, MapPin, Heart, Home, Wrench, ShoppingBag, Info, MessageSquare, Instagram, Globe } from "lucide-react";
 import { serviceCategories } from "@/data/services";
 import logo from "@/assets/logo.jpeg";
 
@@ -26,11 +26,28 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground mb-4">Your trusted partner for all electrical needs.</p>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Clock className="w-4 h-4 text-primary" />
-              <span>Mon–Sat: 8 AM – 6 PM</span>
+            <div className="flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/vizagelectro?igsh=MTR1bG1qOHlobHBiYg=="
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+                className="flex items-center justify-center w-9 h-9 rounded-full glass hover:border-primary/50 hover:text-primary transition-colors"
+              >
+                <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.google.co.in/search?utm_medium=noren&utm_source=gbp&utm_campaign=2026&q=Vizag+electro&ludocid=1169363051205453117&lsig=AB86z5XlrN4y1NdHP1OF-QU5Eicd"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Google Business"
+                title="Google Business"
+                className="flex items-center justify-center w-9 h-9 rounded-full glass hover:border-primary/50 hover:text-primary transition-colors"
+              >
+                <Globe className="w-4 h-4" />
+              </a>
             </div>
-            <p className="text-xs text-primary mt-1 ml-6">+ 24 Hour Emergency Service</p>
           </div>
 
           {/* Quick Links */}
