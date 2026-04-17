@@ -6,6 +6,7 @@ import mcbImg from "@/assets/serv/mcb.jpg";
 import switchImg from "@/assets/serv/switch.jpg";
 import homeAutoImg from "@/assets/serv/home auto mation.jpg";
 import generalImg from "@/assets/serv/general services.jpg";
+import acWiringImg from "@/assets/serv/ac-wiring.jpg";
 
 
 
@@ -140,6 +141,23 @@ export const serviceCategories: ServiceCategory[] = [
       { name: "Smart Security Camera Setup" },
       { name: "Smart Door Lock Installation" },
       { name: "Automated Curtain/Blind Setup" },
+    ],
+  },
+  {
+    title: "AC Wiring Service",
+    slug: "ac-wiring-service",
+    description: "Professional AC wiring, copper cable installation and dedicated power line setup for split & window ACs.",
+    icon: "Plug",
+    image: acWiringImg,
+    items: [
+      { name: "Split AC Wiring Installation" },
+      { name: "Window AC Wiring Installation" },
+      { name: "Dedicated Power Line for AC" },
+      { name: "Copper Cable Installation" },
+      { name: "AC Stabilizer Wiring" },
+      { name: "AC MCB & Isolator Installation" },
+      { name: "AC Wiring Repair & Rewiring" },
+      { name: "Outdoor Unit Cable Setup" },
     ],
   },
   {

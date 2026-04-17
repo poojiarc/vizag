@@ -50,16 +50,16 @@ const Products = () => {
                 whileHover={{ scale: 1.04, y: -4 }}
                 className="glass rounded-xl overflow-hidden group"
               >
-                <div className="relative h-36 overflow-hidden">
+                <div className="relative h-36 overflow-hidden bg-white">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover opacity-50 group-hover:opacity-70 transition-opacity"
+                    className="w-full h-full object-contain opacity-100 group-hover:scale-105 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
                 <div className="p-3">
-                  <p className="text-sm font-semibold leading-tight">{product.name}</p>
+                  <p className="text-sm font-semibold leading-tight text-foreground">{product.name}</p>
                   {product.refCode && (
                     <p className="text-xs text-muted-foreground mt-0.5">{product.refCode}</p>
                   )}

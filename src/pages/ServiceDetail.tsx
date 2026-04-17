@@ -31,11 +31,12 @@ const ServiceDetail = () => {
             <img
               src={category.image}
               alt={category.title}
-              className="absolute inset-0 w-full h-full object-cover opacity-30"
+              className="absolute inset-0 w-full h-full object-cover opacity-90"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-[1]" />
             <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
-              <h1 className="text-2xl md:text-4xl font-bold">{category.title}</h1>
-              <p className="text-muted-foreground mt-2 max-w-lg">{category.description}</p>
+              <h1 className="text-2xl md:text-4xl font-bold text-white drop-shadow-lg">{category.title}</h1>
+              <p className="text-white/90 mt-2 max-w-lg drop-shadow">{category.description}</p>
             </div>
           </div>
         </SectionReveal>
@@ -73,7 +74,9 @@ const ServiceDetail = () => {
               {relatedProducts.slice(0, 8).map((product, i) => (
                 <SectionReveal key={product.name} delay={i * 0.03}>
                   <motion.div whileHover={{ scale: 1.03 }} className="glass rounded-xl overflow-hidden">
-                    <img src={product.image} alt={product.name} className="w-full h-32 object-cover opacity-60" loading="lazy" />
+                    <div className="bg-white">
+                      <img src={product.image} alt={product.name} className="w-full h-32 object-contain" loading="lazy" />
+                    </div>
                     <div className="p-3">
                       <p className="text-sm font-semibold">{product.name}</p>
                       {product.refCode && <p className="text-xs text-muted-foreground">{product.refCode}</p>}
