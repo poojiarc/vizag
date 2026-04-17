@@ -80,11 +80,11 @@ const Contact = () => {
                   <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <span>Shop-03, Opp Indian Oil Petrol Bunk, 1 Town Old Post Office, Visakhapatnam - 530001</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <Clock className="w-5 h-5 text-primary" />
+                <div className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <Clock className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                   <div>
-                    <span>Mon–Sat: 8 AM – 6 PM</span>
-                    <p className="text-xs text-primary mt-0.5">+ 24 Hour Emergency Service</p>
+                    <span className="text-foreground font-medium">Mon – Sun: 8:00 AM – 8:00 PM</span>
+                    <p className="text-xs text-primary mt-0.5">24/7 Emergency Service Available</p>
                   </div>
                 </div>
               </div>
@@ -96,13 +96,14 @@ const Contact = () => {
                   Business Hours
                 </h3>
                 <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                  <span>Monday</span><span>8:00 AM – 6:00 PM</span>
-                  <span>Tuesday</span><span>8:00 AM – 6:00 PM</span>
-                  <span>Wednesday</span><span>8:00 AM – 6:00 PM</span>
-                  <span>Thursday</span><span>8:00 AM – 6:00 PM</span>
-                  <span>Friday</span><span>8:00 AM – 6:00 PM</span>
-                  <span>Saturday</span><span>8:00 AM – 6:00 PM</span>
-                  <span>Sunday</span><span className="text-primary">Emergency Only</span>
+                  <span>Monday</span><span>8:00 AM – 8:00 PM</span>
+                  <span>Tuesday</span><span>8:00 AM – 8:00 PM</span>
+                  <span>Wednesday</span><span>8:00 AM – 8:00 PM</span>
+                  <span>Thursday</span><span>8:00 AM – 8:00 PM</span>
+                  <span>Friday</span><span>8:00 AM – 8:00 PM</span>
+                  <span>Saturday</span><span>8:00 AM – 8:00 PM</span>
+                  <span>Sunday</span><span>8:00 AM – 8:00 PM</span>
+                  <span className="text-primary col-span-2 mt-2 font-semibold">⚡ 24/7 Emergency Service</span>
                 </div>
               </div>
             </div>

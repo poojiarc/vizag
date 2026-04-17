@@ -30,12 +30,13 @@ const Services = () => {
                   <img
                     src={cat.image}
                     alt={cat.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 transition-opacity"
+                    className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/20 z-[1]" />
                   <div className="relative z-10 h-full flex flex-col justify-end p-6">
-                    <h3 className="font-bold text-xl mb-1">{cat.title}</h3>
-                    <p className="text-sm text-muted-foreground mb-3">{cat.description}</p>
+                    <h3 className="font-bold text-xl mb-1 text-white drop-shadow-lg">{cat.title}</h3>
+                    <p className="text-sm text-white/90 mb-3 drop-shadow">{cat.description}</p>
                     <div className="flex items-center gap-1 text-primary text-sm font-semibold">
                       <span>{cat.items.length} services</span>
                       <ArrowRight className="w-4 h-4" />

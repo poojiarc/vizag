@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Heart, Home, Wrench, ShoppingBag, Info, MessageSquare, Instagram, Globe } from "lucide-react";
+import { Phone, Mail, MapPin, Heart, Home, Wrench, ShoppingBag, Info, MessageSquare, Instagram, Globe, Clock } from "lucide-react";
 import { serviceCategories } from "@/data/services";
 import logo from "@/assets/logo.jpeg";
 
@@ -93,6 +93,13 @@ const Footer = () => {
               <div className="flex items-start gap-2 text-sm text-muted-foreground">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
                 <span>Shop-03, Opp Indian Oil Petrol Bunk, 1 Town Old Post Office, Visakhapatnam - 530001</span>
+              </div>
+              <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                <Clock className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
+                <div>
+                  <p>Mon – Sun: 8 AM – 8 PM</p>
+                  <p className="text-xs text-primary mt-0.5">24/7 Emergency Service</p>
+                </div>
               </div>
             </div>
           </div>
