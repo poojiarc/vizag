@@ -143,6 +143,41 @@ const Index = () => {
       {/* Logo slider */}
       <InfiniteSlider />
 
+      {/* AMC Highlight */}
+      <SectionReveal>
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="relative overflow-hidden rounded-2xl glass border border-primary/30 p-6 md:p-10">
+              <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                <div className="shrink-0 flex items-center justify-center w-20 h-20 rounded-2xl gradient-bg shadow-[0_0_40px_hsl(43_85%_55%/0.4)]">
+                  <BadgeCheck className="w-10 h-10 text-primary-foreground" />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30 mb-3">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-primary">Annual Maintenance Contract</span>
+                  </div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-2">
+                    AMC starting at just <span className="gradient-text">₹49 / month</span>
+                  </h2>
+                  <p className="text-sm md:text-base text-muted-foreground">
+                    For offices, apartments, schools, colleges, showrooms, function halls, businesses & more.
+                  </p>
+                </div>
+                <Link
+                  to="/contact"
+                  className="shrink-0 inline-flex items-center gap-2 gradient-bg text-primary-foreground px-6 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Get AMC Quote
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      </SectionReveal>
+
       {/* Services preview */}
       <section className="py-20">
         <div className="container mx-auto px-4">
