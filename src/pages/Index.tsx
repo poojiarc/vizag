@@ -1,14 +1,20 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight, Zap, Phone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Zap, Phone, BadgeCheck } from "lucide-react";
 import Hls from "hls.js";
 import InfiniteSlider from "@/components/InfiniteSlider";
 import SectionReveal from "@/components/SectionReveal";
 import { serviceCategories } from "@/data/services";
+import heroBg1 from "@/assets/hero-bg-1.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
+import heroBg3 from "@/assets/hero-bg-3.jpg";
+
+const heroBackgrounds = [heroBg1, heroBg2, heroBg3];
 
 const HeroVideo = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [bgIndex, setBgIndex] = useState(0);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -24,18 +30,38 @@ const HeroVideo = () => {
     }
   }, []);
 
+  useEffect(() => {
+    const id = setInterval(() => setBgIndex((i) => (i + 1) % heroBackgrounds.length), 6000);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="absolute inset-0 z-0">
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-transparent z-10 pointer-events-none" />
+      {/* Rotating background images */}
+      <AnimatePresence mode="sync">
+        <motion.img
+          key={bgIndex}
+          src={heroBackgrounds[bgIndex]}
+          alt="Vizag Electro hero background"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 0.55, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.6, ease: "easeInOut" }}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+      {/* Video on top with blend */}
       <video
         ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
-        className="w-full h-full object-cover opacity-40"
+        className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen"
       />
+      {/* Gradient overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30 z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/40 z-10 pointer-events-none" />
     </div>
   );
 };
